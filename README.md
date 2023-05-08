@@ -5,7 +5,7 @@ Dive into this fun project where you'll enhance a Python program that detects pa
 ## Environment Setup
 <!-- - Check if you can access `pip` and `git` from your terminal. 
 - **Fork** the repository and **clone** the forked repository on your system. (You should find the fork option on the upper right corner of the screen).-->
-- Open cmd (terminal) and type `cd Desktop/FunCodePlayground`.
+- Open cmd (terminal) and type `cd Desktop\FunCodePlayground`.
 - Next, type `code .` which should open VS code. Inside VS Code open new terminal (See the menu bar or press Ctrl Key + Shift Key + ` )
 - Try running the code `python main.py` from the terminal, it should pass 0 of 3 test cases. (Run code from terminal only) 
 <!-- Check if you can access from your terminal. Your system needs to have Git installed ([download Git](https://git-scm.com/downloads)). - Install these dependencies first, `pip install -r requirements.txt`.-->
