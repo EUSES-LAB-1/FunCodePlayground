@@ -13,7 +13,7 @@ Dive into this fun project where you'll enhance a Python program that detects pa
 Now that you are setup, here are your tasks. Let the experimenter know before and after each task so you can receive a questionnaire (this is **mandatory**). They'll keep you updated on time limits.
 
 ## Task 1: Fixing code functionalities
-- Create and checkout your own git branch named `Participant-ID-fix` to get started.
+- Create and checkout your own git branch **From your VS Code Terminal** named `Participant-ID-fix` to get started.
 - Now in your branch, fix the code (the functions) such that all the test cases pass. [Do not augment the `main()` method]
 
 You will have **20 minutes** to solve this task. Once done, let the experimenter know before proceeding to the next task.
