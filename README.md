@@ -23,6 +23,7 @@ You will have **20 minutes** to solve this task. Once done, let the experimenter
 - Remove code smells from the code. Your goal is to find out:
   - What code smells are and where it occured in the code.
   - Once identified, now fix the code such that it no longer has code smells. [You may augment the `main()` method]
+  - Remember you should still pass the same number of test cases that you did at the end of task 1.
 
 You will have **10 minutes** to solve this task. Once done, let the experimenter know before proceeding to the next task.
 
