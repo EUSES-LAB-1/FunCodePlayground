@@ -15,6 +15,7 @@ Now that you are setup, here are your tasks. Let the experimenter know before an
 ## Task 1: Fixing code functionalities
 - Create and checkout your own git branch **From your VS Code Terminal** named `Participant-ID-fix` to get started.
 - Now in your branch, fix the code (the functions) such that all the test cases pass. [Do not augment the `main()` method]
+- You need to fix the palindrome function, the check_weather function such that it fetches the weather for the given lat and lon using NOAA_SDK library, and the check_webpage function such that it scrapes all visible elements.
 
 You will have **20 minutes** to solve this task. Once done, let the experimenter know before proceeding to the next task.
 
