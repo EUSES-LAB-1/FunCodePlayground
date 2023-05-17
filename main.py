@@ -20,9 +20,7 @@ def check_pallindrome(num):
     num = str(num)
     num_copy = num
     num = num[::-1]
-    if num_copy != num:
-        return True
-    return False
+    return num_copy == num
 
 def check_webpage(link: str) -> None:
     # Initialize Chrome WebDriver
