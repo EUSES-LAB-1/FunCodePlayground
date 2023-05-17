@@ -31,7 +31,7 @@ def check_webpage(link: str) -> None:
     # Wait for page to load and all elements to become visible
     driver.implicitly_wait(10)
     # Get all visible elements on the page
-    visible_elements = driver.find_elements_by_css_selector("*:not([style*=‘display:none’]):not([style*=‘display: none’])")
+    visible_elements = driver.find_elements_xxx("*:not([style*=‘display:none’]):not([style*=‘display: none’])")
     # Save visible elements to an HTML file
     with open("visible_elements.html", "w", encoding="utf-8") as file:
         file.write("<html><body>")
