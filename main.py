@@ -44,10 +44,10 @@ def check_webpage(link: str) -> None:
 
 # Using the NOAA-SDK in python. Use the lat and lon to get forecast for a specific location.
 def check_weather():
-    lat = 40.7314
-    lon = -73.8656
+    lat = 44.5646
+    lon = 123.2620
     try:
-        forecasts = n.get_forecasts(coordinates=(lat, lon))
+        forecasts = n.get_observations_by_lat_lon(lat, lon)
         print("Test 2 passed")
     except Exception as err:
         print("Test 2 failed")
