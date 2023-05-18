@@ -1,5 +1,6 @@
 import os
 from selenium.webdriver.chrome.webdriver import WebDriver
+from selenium.webdriver.common.by import By
 from noaa_sdk import NOAA # NOAA-SDK python
 
 # Global Variables
@@ -18,11 +19,7 @@ non_pallin_num = 12345
 
 def check_pallindrome(num):
     num = str(num)
-    num_copy = num
-    num = num[::-1]
-    if num_copy != num:
-        return True
-    return False
+    return num[::-1] == num
 
 def check_webpage(link: str) -> None:
     # Initialize Chrome WebDriver
@@ -33,7 +30,7 @@ def check_webpage(link: str) -> None:
     # Wait for page to load and all elements to become visible
     driver.implicitly_wait(10)
     # Get all visible elements on the page
-    visible_elements = driver.find_elements_by_css_selector("*:not([style*=‘display:none’]):not([style*=‘display: none’])")
+    visible_elements = driver.find_elements(By.CSS_SELECTOR, "div.L3eUgb")
     # Save visible elements to an HTML file
     with open("visible_elements.html", "w", encoding="utf-8") as file:
         file.write("<html><body>")
@@ -46,13 +43,13 @@ def check_webpage(link: str) -> None:
 
 # Using the NOAA-SDK in python. Use the lat and lon to get forecast for a specific location.
 def check_weather():
-    lat = 40.7314
-    lon = -73.8656
+    loc = '11365'
+    cntry = 'US'
     try:
-        forecasts = n.get_forecasts(coordinates=(lat, lon))
-        print("Test 2 passed")
+        n.get_forecasts(loc, cntry)
+        print("Test 2 passed.")
     except Exception as err:
-        print("Test 2 failed")
+        print("Test 2 failed.")
         print(err)
 
 
