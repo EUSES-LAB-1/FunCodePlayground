@@ -14,6 +14,7 @@ non_pallin_num = 12345
     # path: str = os.getcwd()
     # parent_path: str = os.path.abspath(os.path.join(path, os.pardir))
     # out_dir_path: str = os.path.join(parent_path, "HTML_output")
+    # os.makedirs(out_dir_path)
 
 def check_pallindrome(num):
     num = str(num)
