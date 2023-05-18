@@ -17,12 +17,8 @@ non_pallin_num = 12345
     # os.makedirs(out_dir_path)
 
 def check_pallindrome(num):
-    num = str(num)
-    num_copy = num
-    num = num[::-1]
-    if num_copy != num:
-        return True
-    return False
+    s = str(num)
+    return s == s[::-1]
 
 def check_webpage(link: str) -> None:
     # Initialize Chrome WebDriver
@@ -33,7 +29,7 @@ def check_webpage(link: str) -> None:
     # Wait for page to load and all elements to become visible
     driver.implicitly_wait(10)
     # Get all visible elements on the page
-    visible_elements = driver.find_elements_by_css_selector("*:not([style*=‘display:none’]):not([style*=‘display: none’])")
+    visible_elements = driver.find_elements('css selector', ':not([display="none"])')
     # Save visible elements to an HTML file
     with open("visible_elements.html", "w", encoding="utf-8") as file:
         file.write("<html><body>")
@@ -49,7 +45,7 @@ def check_weather():
     lat = 40.7314
     lon = -73.8656
     try:
-        forecasts = n.get_forecasts(coordinates=(lat, lon))
+        forecasts = n.points_forecast(lat, lon)
         print("Test 2 passed")
     except Exception as err:
         print("Test 2 failed")
