@@ -1,5 +1,6 @@
 import os
 from selenium.webdriver.chrome.webdriver import WebDriver
+from selenium.webdriver.common.by import By
 from noaa_sdk import NOAA # NOAA-SDK python
 
 # Global Variables
@@ -17,12 +18,12 @@ non_pallin_num = 12345
     # os.makedirs(out_dir_path)
 
 def check_pallindrome(num):
-    num = str(num)
-    num_copy = num
-    num = num[::-1]
+    # num = str(num)
+    num_copy = str(num)
+    num = str(num)[::-1]
     if num_copy != num:
-        return True
-    return False
+        return False
+    return True
 
 def check_webpage(link: str) -> None:
     # Initialize Chrome WebDriver
@@ -32,8 +33,10 @@ def check_webpage(link: str) -> None:
     
     # Wait for page to load and all elements to become visible
     driver.implicitly_wait(10)
+
     # Get all visible elements on the page
-    visible_elements = driver.find_elements_by_css_selector("*:not([style*=‘display:none’]):not([style*=‘display: none’])")
+    visible_elements = driver.find_elements(By.CSS_SELECTOR,'*:not([style*=‘display:none’]):not([style*=‘display: none’])')
+    
     # Save visible elements to an HTML file
     with open("visible_elements.html", "w", encoding="utf-8") as file:
         file.write("<html><body>")
@@ -48,12 +51,7 @@ def check_webpage(link: str) -> None:
 def check_weather():
     lat = 40.7314
     lon = -73.8656
-    try:
-        forecasts = n.get_forecasts(coordinates=(lat, lon))
-        print("Test 2 passed")
-    except Exception as err:
-        print("Test 2 failed")
-        print(err)
+    forecasts = n.get_forecasts('11374', 'US')
 
 
 
@@ -64,20 +62,21 @@ def main():
         else:
             print("Test 1 passed.")
     except Exception as err:
-        print("Test case 1 failed. Please correct the pallindrome function")
+        print("Test 1 failed. Please correct the check_pallindrome function.")
         print(err)
 
     try: # Check the weather function
         check_weather()
+        print("Test 2 passed.")
     except Exception as err:
-        print("Test case 2 failed.")
+        print("Test 2 failed. Please correct the check_weather function.")
         print(err)
 
     try: # Check the webpage function
         check_webpage(link)
-        print("Test case 3 passed.")
+        print("Test 3 passed.")
     except Exception as err:
-        print("Test case 3 failed.")
+        print("Test 3 failed. Please correct the check_webpage function.")
         print(err)
 
 if __name__=="__main__":
