@@ -1,5 +1,6 @@
 import os
 from selenium.webdriver.chrome.webdriver import WebDriver
+from selenium.webdriver.common.by import By
 from noaa_sdk import NOAA # NOAA-SDK python
 
 # Global Variables
@@ -19,11 +20,11 @@ def check_pallindrome(num):
     num = str(num)
     num_copy = num
     num = num[::-1]
-    if num_copy != num:
+    if num_copy == num:
         return True
     return False
 
-def check_webpage(link: str) -> None:
+def get_visible_elements(link: str) -> None:
     # Initialize Chrome WebDriver
     driver: WebDriver = WebDriver()
     # Navigate to webpage
@@ -32,7 +33,7 @@ def check_webpage(link: str) -> None:
     # Wait for page to load and all elements to become visible
     driver.implicitly_wait(10)
     # Get all visible elements on the page
-    visible_elements = driver.find_elements_by_css_selector("*:not([style*=‘display:none’]):not([style*=‘display: none’])")
+    visible_elements = driver.find_element(By.CSS_SELECTOR("*:not([style=‘display:none’]):not([style=‘display: none’])"))
     # Save visible elements to an HTML file
     with open("visible_elements.html", "w", encoding="utf-8") as file:
         file.write("<html><body>")
@@ -48,7 +49,7 @@ def check_weather():
     lat = 40.7314
     lon = -73.8656
     try:
-        forecasts = n.get_forecasts(coordinates=(lat, lon))
+        forecasts = n.points_forecast(lat, lon, type='forecastGridData')
         print("Test 2 passed")
     except Exception as err:
         print("Test 2 failed")
@@ -73,7 +74,7 @@ def main():
         print(err)
 
     try: # Check the webpage function
-        check_webpage(link)
+        get_visible_elements(link)
         print("Test case 3 passed.")
     except Exception as err:
         print("Test case 3 failed.")
