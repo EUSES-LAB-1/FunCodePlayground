@@ -16,12 +16,22 @@ non_pallin_num = 12345
     # out_dir_path: str = os.path.join(parent_path, "HTML_output")
 
 def check_pallindrome(num):
+    """
     num = str(num)
     num_copy = num
     num = num[::-1]
-    if num_copy != num:
-        return True
-    return False
+    print("num: " + str(num))
+    print("num_copy: " + str(num_copy))
+    print(num == num_copy)
+    
+    if num == num_copy:
+        return False
+    return True
+    """
+    print(str(num) == str(num[::-1]))
+    return str(num) == str(num[::-1])
+
+
 
 def check_webpage(link: str) -> None:
     # Initialize Chrome WebDriver
