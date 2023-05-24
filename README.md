@@ -10,7 +10,7 @@ Dive into this fun project where you'll enhance a Python program that detects pa
 - Try running the code `python main.py` from the terminal, it should pass 0 of 3 test cases. (Run code from terminal only) 
 <!-- Check if you can access from your terminal. Your system needs to have Git installed ([download Git](https://git-scm.com/downloads)). - Install these dependencies first, `pip install -r requirements.txt`.-->
 
-Now that you are setup, here are your tasks. Let the experimenter know before and after each task so you can receive a questionnaire (this is **mandatory**). They'll keep you updated on time limits.
+Now that you are setup, here are your tasks. Let the experimenter know before and after each task. They'll keep you updated on time limits.
 
 ## Task 1: Fixing code functionalities
 - Create and checkout your own git branch **From your VS Code Terminal** named `Participant-ID-fix` to get started.
