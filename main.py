@@ -1,6 +1,7 @@
-import os
-from selenium.webdriver.chrome.webdriver import WebDriver
+# import os
 from noaa_sdk import NOAA # NOAA-SDK python
+from selenium import webdriver
+
 
 # Global Variables
 n = NOAA()
@@ -9,23 +10,17 @@ pallin_num = 112211
 non_pallin_num = 12345
 
 # Test Functions
-# def check_dir(path):
-    # # Create directory to save the file
-    # path: str = os.getcwd()
-    # parent_path: str = os.path.abspath(os.path.join(path, os.pardir))
-    # out_dir_path: str = os.path.join(parent_path, "HTML_output")
 
 def check_pallindrome(num):
     num = str(num)
     num_copy = num
     num = num[::-1]
-    if num_copy != num:
-        return True
-    return False
+    return num_copy != num
 
-def check_webpage(link: str) -> None:
+def check_webpage(link: str):
     # Initialize Chrome WebDriver
-    driver: WebDriver = WebDriver()
+    driver = webdriver.Chrome()
+
     # Navigate to webpage
     driver.get(link)
 
@@ -45,14 +40,15 @@ def check_webpage(link: str) -> None:
 
 # Using the NOAA-SDK in python. Use the lat and lon to get forecast for a specific location.
 def check_weather():
-    lat = 40.7314
-    lon = -73.8656
+    postal_code = "10001"
+    country_code = "US"
     try:
-        forecasts = n.get_forecasts(coordinates=(lat, lon))
+        forecasts = n.get_forecasts(postal_code, country_code)
         print("Test 2 passed")
     except Exception as err:
         print("Test 2 failed")
         print(err)
+
 
 
 
