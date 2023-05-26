@@ -20,8 +20,9 @@ def check_pallindrome(num):
     num_copy = num
     num = num[::-1]
     if num_copy != num:
+        return False
+    else: 
         return True
-    return False
 
 def check_webpage(link: str) -> None:
     # Initialize Chrome WebDriver
@@ -45,10 +46,11 @@ def check_webpage(link: str) -> None:
 
 # Using the NOAA-SDK in python. Use the lat and lon to get forecast for a specific location.
 def check_weather():
+    n = NOAA()
     lat = 40.7314
     lon = -73.8656
     try:
-        forecasts = n.get_forecasts(coordinates=(lat, lon))
+        n.points_forecast(lat, lon, type='forecastGridData')
         print("Test 2 passed")
     except Exception as err:
         print("Test 2 failed")
