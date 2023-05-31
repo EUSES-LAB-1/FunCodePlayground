@@ -1,5 +1,5 @@
 import os
-from selenium.webdriver.chrome.webdriver import WebDriver
+from selenium import webdriver
 from noaa_sdk import NOAA # NOAA-SDK python
 
 # Global Variables
@@ -19,13 +19,14 @@ def check_pallindrome(num):
     num = str(num)
     num_copy = num
     num = num[::-1]
-    if num_copy != num:
+    for i in num:
+        if num_copy != num:
+            return False
         return True
-    return False
 
 def check_webpage(link: str) -> None:
     # Initialize Chrome WebDriver
-    driver: WebDriver = WebDriver()
+    driver: webdriver.Chrome()
     # Navigate to webpage
     driver.get(link)
 
@@ -47,8 +48,9 @@ def check_webpage(link: str) -> None:
 def check_weather():
     lat = 40.7314
     lon = -73.8656
+    coordinates=(lat, lon)
     try:
-        forecasts = n.get_forecasts(coordinates=(lat, lon))
+        forecasts = n.get_forecasts_by_lat_lon(lat, lon)
         print("Test 2 passed")
     except Exception as err:
         print("Test 2 failed")
