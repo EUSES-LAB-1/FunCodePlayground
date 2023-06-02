@@ -8,18 +8,12 @@ link = 'https://www.google.com'
 pallin_num = 112211
 non_pallin_num = 12345
 
-# Test Functions
-# def check_dir(path):
-    # # Create directory to save the file
-    # path: str = os.getcwd()
-    # parent_path: str = os.path.abspath(os.path.join(path, os.pardir))
-    # out_dir_path: str = os.path.join(parent_path, "HTML_output")
 
+# Function that checks if a string is a pallindrome
 def check_pallindrome(num):
     num = str(num)
-    num_copy = num
-    num = num[::-1]
-    if num_copy != num:
+    num_copy = num[::-1]
+    if num_copy == num:
         return True
     return False
 
