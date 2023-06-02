@@ -42,7 +42,7 @@ def check_weather():
     lat = 40.7314
     lon = -73.8656
     try:
-        forecasts = n.get_forecasts(coordinates=(lat, lon))
+        forecasts = n.points_forecast(lat, lon)
         print("Test 2 passed")
     except Exception as err:
         print("Test 2 failed")
